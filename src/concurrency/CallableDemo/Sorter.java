@@ -3,12 +3,16 @@ package concurrency.CallableDemo;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Future;
 
 public class Sorter implements Callable<List<Integer>> {
     private List<Integer> arr;
+    private ExecutorService executorService;
 
-    Sorter(List<Integer> arr) {
+    Sorter(List<Integer> arr, ExecutorService executorService) {
         this.arr = arr;
+        this.executorService = executorService;
     }
 
     @Override
@@ -35,11 +39,17 @@ public class Sorter implements Callable<List<Integer>> {
         }
 
         //Recursively Sort the 2 array
-        Sorter leftSorter = new Sorter(leftArr);
-        Sorter rightSorter = new Sorter(rightArr);
+        Sorter leftSorter = new Sorter(leftArr, executorService);
+        Sorter rightSorter = new Sorter(rightArr, executorService);
 
-        leftArr = leftSorter.call();
-        rightArr = rightSorter.call();
+        Future<List<Integer>> leftFuture = executorService.submit(leftSorter);
+        Future<List<Integer>> rightFuture =executorService.submit(rightSorter);
+
+//        leftArr = leftSorter.call();
+//        rightArr = rightSorter.call();
+
+        leftArr = leftFuture.get();
+        rightArr = rightFuture.get();
 
         // Merge
         List<Integer> output = new ArrayList<>();
