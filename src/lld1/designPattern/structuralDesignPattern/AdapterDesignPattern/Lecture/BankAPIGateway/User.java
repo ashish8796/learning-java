@@ -1,4 +1,4 @@
-package designPattern.structuralDesignPattern.Lecture.BankAPIGateway;
+package designPattern.structuralDesignPattern.AdapterDesignPattern.Lecture.BankAPIGateway;
 
 public class User {
     private String username;
