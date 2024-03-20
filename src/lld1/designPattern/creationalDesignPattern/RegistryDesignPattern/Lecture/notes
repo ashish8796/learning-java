@@ -1,0 +1,23 @@
+Need to create a deep copy method for student object using prototype design pattern for students
+Students can be part of different batches. Handle this situation using Registry Design Pattern
+
+Student should have the following properties
+    1. name
+    2. email
+    3. phoneNumber
+    4. yearOfEnrollment
+    5. batchName
+    6. moduleName
+    7. instructorName
+    8. moduleStartDate
+    9. moduleEndDate
+    10. moduleSchedule
+
+Solution -
+    1. interface with a generic -> clone()
+    2. Any class that needs to follow prototype -> implements the interface
+    3. write the clone() -> call a specific copy constructor which copies the set
+    of attributes will remain common across a lot of objects
+    4. use the clone() to create copies of the prototype
+
+    5. Maintain multiple prototypes of a class -> Registry -> class with a hashmap
