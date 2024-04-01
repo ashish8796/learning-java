@@ -1,0 +1,4 @@
+package designPattern.structuralDesignPattern.FlyweightDesignPattern.assignment.ChessUserOptimizationFlyweight;
+
+public interface IntrinsicState {
+}
