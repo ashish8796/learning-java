@@ -1,19 +1,10 @@
 package inheritance;
 
 import java.util.Stack;
+import java.util.concurrent.Executors;
 
-public class Client implements MyInterface {
+public class Client {
     public static void main(String[] args) {
-        C objC = new C();
-        P obj = new C();
-
-        obj.fun1();
-        obj.fun();
-        obj.sfun();
-    }
-
-    @Override
-    public void abstractMethod() {
 
     }
 }
