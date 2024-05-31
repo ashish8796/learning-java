@@ -1,0 +1,33 @@
+Class Diagram
+Student
+[
++String name;
++String email;
++String password;
+----------------------
+-getPSP(): int
+-getFullName(firstName: String, lastName: String): String
+]
+
+<<Interface>>
+[
+-isStudent(): bool
+]
+
+Batch
+[
++String batch_name;
++LocalDateTime start_date;
+--------------------------
+-getAveragePspOfBatch(): int
+]
+            m
+Student --------- Batch // needs look up table
+            m
+            1
+Student -------- Other Entity // need to store fk in many side table
+            m
+            1
+Student ---------- Other Entity // need to store fk of one entity either side
+            1
+
